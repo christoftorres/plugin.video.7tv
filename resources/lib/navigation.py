@@ -127,9 +127,9 @@ def rootDir():
 
 def showLiveChannels():
     selection = '{totalCount,data{title,tvShow{title},season{number},episode{number},images(subType:"cover"){url,subType},tvChannelName,description,productionYear,startTime,endTime}}'
-    url = '%s/epg/now?selection=%s' % (serviceUrl, selection)
+    url = '%s/epg/now?selection=%s' % ('https://middleware.p7s1.io/joyn/v1', selection)
 
-    response = seventv.getUrl(url).get('response')
+    response = seventv.getUrl(url, key='1ec991118fe49ca44c185ee6a86354ef').get('response')
     content = response.get('data')
 
     addDir('Aktualisieren', 'xbmc.executebuiltin("container.refresh")', infoLabels={'plot': 'Aktualisieren'})

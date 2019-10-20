@@ -153,14 +153,14 @@ def playLiveTV(property_name, client_location, access_token, client_token, infoL
     xbmcplugin.setResolvedUrl(addon_handle, True, li)
 
 
-def getUrl(url, data=None, header=None):
+def getUrl(url, data=None, header=None, key=apiKey):
     xbmc.log('Get Url: %s' % url)
 
     opener = urllib2.build_opener()
     if header:
         opener.addheaders = header
     else:
-        opener.addheaders = [('User-Agent', userAgent), ('key', apiKey)]
+        opener.addheaders = [('User-Agent', userAgent), ('key', key)]
     try:
         if data:
             content = opener.open(url, data=data).read()
