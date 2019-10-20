@@ -88,7 +88,7 @@ channels = [
               }
             , {
                   'id': '7'
-                , 'label': 'kabel eins Doku'
+                , 'label': 'Kabel Eins Doku'
                 , 'icon': 'kabeleinsdoku.png'
                 , 'property_name' : 'kabeleinsdoku-de-24x7'
                 , 'client_location': 'https://www.kabeleinsdoku.de/livestream'
@@ -144,7 +144,7 @@ def showLiveChannels():
 
             url = common.build_url({'action': 'playLiveTV', 'property_name': channel.get('property_name'), 'client_location': channel.get('client_location'), 'access_token': channel.get('access_token'), 'client_token': channel.get('client_token'), 'callback': channel.get('callback'), 'infoLables': infoLabels})
             title = infoLabels.get('title').capitalize() if infoLabels.get('tvshowtitle', None) is None or infoLabels.get('tvshowtitle') == infoLabels.get('title') else infoLabels.get('tvshowtitle').capitalize() + ': ' + infoLabels.get('title').capitalize()
-            title = '[B]%s[/B] - %s' % (channel.get('label'), title)
+            title = '[B] %s [/B] - %s' % (channel.get('label'), title)
             addFile(title, url, icon_path + channel.get('icon'), thumbnailImage, infoLabels)
 
     xbmcplugin.setContent(addon_handle, 'files')
